@@ -1,0 +1,50 @@
+HELP.md
+target/
+demo/!.mvn/wrapper/maven-wrapper.jar
+demo/!**/src/main/**/target/
+demo/!**/src/test/**/target/
+
+### STS ###
+demo/.apt_generated
+demo/.classpath
+demo/.factorypath
+demo/.project
+demo/.settings
+demo/.springBeans
+demo/.sts4-cache
+
+### IntelliJ IDEA ###
+demo/.idea
+demo/*.iws
+demo/*.iml
+demo/*.ipr
+
+build/
+demo/!**/src/main/**/build/
+demo/!**/src/test/**/build/
+
+### VS Code ###
+demo/.vscode/
+
+
+kata-crud/node_modules
+kata-crud/.pnp
+kata-crud/.pnp.js
+
+# testing
+kata-crud/coverage
+
+# production
+kata-crud/build
+
+# misc
+kata-crud/.DS_Store
+kata-crud/.env.local
+kata-crud/.env.development.local
+kata-crud/.env.test.local
+kata-crud/.env.production.local
+
+kata-crud/npm-debug.log*
+kata-crud/yarn-debug.log*
+kata-crud/yarn-error.log*
+
