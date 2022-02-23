@@ -1,6 +1,6 @@
-import React , { createContext, useContext, useReducer, useEffect, useRef} from 'react';
+import React , { createContext, useContext, useReducer, useEffect, useRef, useState} from 'react';
 
-const HOST_API = "http://localhost:8080/api/"
+const HOST_API = "http://localhost:8080/api"
 const initialState = {
 	list: []
 };
@@ -8,6 +8,8 @@ const Store = createContext(initialState);
 
 const Form = () =>{
 	const formRef = useRef(null);
+	const {dispatch} = useContext(Store);
+	const [state, setState] = useState({});
 
 	const onAdd = (event) => {
 		event.preventDefault();
@@ -27,7 +29,7 @@ const Form = () =>{
 		})
 		.then(response => response.json())
 		.then((todo) => {
-			dispach({ type: "add-item", item:todo});
+			dispatch({ type: "add-item", item:todo});
 			setState({name: "", description: ""});
 			formRef.current.reset()
 		})
@@ -39,9 +41,6 @@ const Form = () =>{
 		<form ref={formRef}>
 			<input type="text" name="name" onChange={(event) => {
 				setState({...state,name:event.target.value})
-			}}></input>
-			<input type="text" name="description" onChange={(event) => {
-				setState({...state,decription:event.target.value})
 			}}></input>
 			<button onClick={onAdd}>Agregar</button>
 		</form>
@@ -112,7 +111,8 @@ const StoreProvider = ({children}) =>{
 function App() {
   return (
     <StoreProvider>
-      <List/>
+		<Form/>
+		<List/>
     </StoreProvider>
   );
 }
